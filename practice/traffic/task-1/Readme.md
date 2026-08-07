@@ -5,7 +5,7 @@ We will use NGINX Ingress for our practice tasks. Installation of it can be done
 ```bash
 helm upgrade --install ingress-nginx ingress-nginx \
   --repo https://kubernetes.github.io/ingress-nginx \
-  --version 4.7.0 \
+  --version 4.15.1 \
   --namespace ingress-nginx --create-namespace \
   --values values-ingress.yaml
 ```

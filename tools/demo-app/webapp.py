@@ -3,7 +3,7 @@ from flask import Flask
 from prometheus_flask_exporter import PrometheusMetrics
 app = Flask(__name__)
 metrics = PrometheusMetrics(app)
-metrics.info('app_info', 'Application info', version='0.2.0')
+metrics.info('app_info', 'Application info', version='0.3.0')
 
 @app.route("/try-to-find-me/here-i-am")
 def hidden():

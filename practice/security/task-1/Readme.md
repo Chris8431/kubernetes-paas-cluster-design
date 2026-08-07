@@ -16,6 +16,6 @@ Try to find the image(s) that has NO high/critical vulnerabilities and NO secret
 - k8spaasclusterdesign.azurecr.io/tools/security/base:1.0.5
 - k8spaasclusterdesign.azurecr.io/tools/security/secrets:2.5.0
 
-Documentation of trivy is available [here](https://aquasecurity.github.io/trivy/v0.42/docs/).
+Documentation of trivy is available [here](https://trivy.dev/docs/latest/guide/).
 
 Test trivy out, you can change for example the output format, which helps to include trivy inside your CI/CD pipelines and display the result inside your Tooling.

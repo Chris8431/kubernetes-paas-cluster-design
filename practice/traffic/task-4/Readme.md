@@ -32,7 +32,7 @@ curl -v http://non-existing-20.166.220.87.nip.io/
 
 We can see that nginx responds with a 404 and a simple HTML site.
 
-Go on and enable the backend, have a look at `values-ingress.yaml` and the [nginx docs](https://github.com/kubernetes/ingress-nginx/tree/helm-chart-4.7.0/charts/ingress-nginx). After changing the `values-ingress.yaml` you need to apply the changes into the cluster using helm:
+Go on and enable the backend, have a look at `values-ingress.yaml` and the [nginx docs](https://github.com/kubernetes/ingress-nginx/tree/helm-chart-4.15.1/charts/ingress-nginx). After changing the `values-ingress.yaml` you need to apply the changes into the cluster using helm:
 
 ```bash
 helm upgrade --install ingress-nginx ingress-nginx \
