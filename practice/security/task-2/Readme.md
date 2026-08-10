@@ -12,6 +12,6 @@ Go on and use trivy to scan the manifests. You can find a few deployments inside
 
 Identify webservers that have misconfigurations.
 
-You will need the `k8s` subcommand to scan the manifests: `trivy k8s --help`
+You will need the `kubernetes` subcommand to scan the manifests: `trivy kubernetes --help`
 
-__Hint__: We are using the [static web server image](https://github.com/static-web-server/static-web-server) as it is very light weight and simple to use. But for this task it is not relevant as we concentrate on the manifests.
+__Hint__: We are using the [static web server image](https://github.com/static-web-server/static-web-server) as it is very lightweight and simple to use. But for this task it is not relevant as we concentrate on the manifests.

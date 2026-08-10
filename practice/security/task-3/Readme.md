@@ -3,7 +3,7 @@
 For certificate management we need cert-manager. Cert-manager can simply be installed via kubectl. Run the following command to install cert-manager in your cluster:
 
 ```bash
-kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.12.0/cert-manager.yaml
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.21.1/cert-manager.yaml
 ```
 
 Check if cert-manager is up and running:
@@ -23,6 +23,8 @@ Verify that cert-manager issued a certificate via
 kubectl get certificate -n task-3
 NAME              READY   SECRET           AGE
 app-certificate   True    app-tls-secret   7s
+
+...
 
 kubectl describe certificate -n task-3
 Name:         app-certificate
@@ -72,13 +74,13 @@ As you can see in the events of the certificate resource: Cert-manager creates a
 
 At this point in time we have an internal app up and running and a certificate. Time to expose it via the Ingress Controller.
 
-Inspect the `ingress.yaml` and replace `<IP>` with the value of your Ingress Controller IP. As you can see in line 11 to 14, we are referencing the seccret `app-tls-secret`, which will be used to terminate TLS connections. Go on and apply the resource via `kubectl apply -f ingress.yaml`.
+Inspect the `ingress.yaml` and replace `<IP>` with the value of your Ingress Controller IP. As you can see in line 11 to 14, we are referencing the secret `app-tls-secret`, which will be used to terminate TLS connections. Go on and apply the resource via `kubectl apply -f ingress.yaml`.
 
 Verify that you can connect to your app with HTTPS and the connection is secured with a self-signed certificate:
 
 ```bash
-curl -v -k https://app-20.105.102.221.nip.io
-* Rebuilt URL to: https://app-20.105.102.221.nip.io/
+curl -v -k https://app-<IP>.nip.io
+* Rebuilt URL to: https://app-<IP>.nip.io/
 *   Trying 20.105.102.221...
 * TCP_NODELAY set
 * Connected to app-20.105.102.221.nip.io (20.105.102.221) port 443 (#0)
