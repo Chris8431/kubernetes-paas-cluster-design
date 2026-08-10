@@ -1,9 +1,9 @@
 # Solution - Security Task 2 - Scan manifests
 
-To scan manifests in a cluster with trivy we need the command `trivy k8s --quiet --namespace=<namespace> --report=summary deploy` to get a overview.
+To scan manifests in a cluster with trivy we need the command `trivy kubernetes --quiet --include-namespaces=task-2 --report=summary` to get an overview.
 
 ```bash
-trivy k8s --quiet --namespace=task-2 --report=summary deploy
+trivy kubernetes --quiet --include-namespaces=task-2 --report=summary
 
 Summary Report for mmek8spaas
 Workload Assessment
@@ -21,7 +21,7 @@ Severities: C=CRITICAL H=HIGH M=MEDIUM L=LOW U=UNKNOWN
 As you can see, webserver2 and webserver3 have misconfigurations and webserver1 is ok. To analyse those miscocnfigurations we need to change the output report to `all` of the trivy command: 
 
 ```bash
-trivy k8s --quiet --namespace=task-2 --report=all deploy
+trivy kubernetes --quiet --include-namespaces=task-2 --report=all
 
 
 task-2-Deployment-webserver3-1897244881.yaml (kubernetes)
@@ -144,4 +144,4 @@ As you can see, trivy provides a detailed description of the findings and how to
 
 Feel free to fix some of the misconfigurations, you can take webserver1 as an example - it is properly configured.
 
-Scanning manifests this way is quite easy and fast to to. Especially if you have to work on a cluster that you do not manage, but there is workload pre-installed and you need to know the current state of configuration (issues).
+Scanning manifests this way is quite easy and fast to do. Especially if you have to work on a cluster that you do not manage, but there is workload pre-installed, and you need to know the current state of configuration (issues).
