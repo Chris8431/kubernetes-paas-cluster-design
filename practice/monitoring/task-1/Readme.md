@@ -11,12 +11,12 @@ Installation of it can be done with one simple `helm` command:
 ```bash
 helm upgrade --install monitoring kube-prometheus-stack \
   --repo https://prometheus-community.github.io/helm-charts \
-  --version 46.8.0 \
+  --version 88.2.0 \
   --namespace monitoring --create-namespace \
   --values values-monitoring.yaml
 ```
 
-Now lets inspect what we deployed via:
+Now let's inspect what we deployed via:
 
 ```bash
 kubectl get deploy,ds,sts,ing -n monitoring
@@ -31,7 +31,7 @@ NAME                                                                READY   AGE
 statefulset.apps/prometheus-monitoring-kube-prometheus-prometheus   1/1     19m
 
 NAME                                                              CLASS   HOSTS                             ADDRESS         PORTS   AGE
-ingress.networking.k8s.io/monitoring-kube-prometheus-prometheus   nginx   prometheus-20.166.220.87.nip.io   20.166.220.87   80      16m
+ingress.networking.k8s.io/monitoring-kube-prometheus-prometheus   nginx   prometheus-<IP>.nip.io            <IP>            80      16m
 ```
 
 The output tells us that we just installed:

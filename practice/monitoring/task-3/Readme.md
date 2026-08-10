@@ -9,10 +9,13 @@ Next, deploy the application via `kubectl apply -f app.yaml`.
 Forward the http port of the application to your localhost and call the app:
 
 ```bash
-kubectl port-forward -n demo-app svc/demo-app 8080:8080 &
-curl localhost:8080
-<h1>Hello from the demo app!</h1>
+kubectl port-forward -n demo-app svc/demo-app 8080:8080 
 ```
+Now open a second terminal and call the app via `curl http://localhost:8080`. You should see a response like this:
+**<h1>Hello from the demo app!</h1>**
+
+```bash
+
 
 Now we need to check if metrics are exposed. Call the standard `/metrics` endpoint:
 

@@ -1,6 +1,6 @@
 # Monitoring Task 4 - Scrape the application from Prometheus
 
-As we are using the Prometheus Operator, there is a handy CRD (Custom Resource Defintion), which allows us to specify targets, that will be automatically be scraped. This CRD is called `ServiceMonitor`.
+As we are using the Prometheus Operator, there is a handy CRD (Custom Resource Definition), which allows us to specify targets, that will be automatically be scraped. This CRD is called `ServiceMonitor`.
 
 Please inspect the `app.yaml`. Fill out the `?` and apply it into the cluster via `kubectl apply -f app.yaml`.
 
