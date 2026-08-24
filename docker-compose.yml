@@ -1,0 +1,11 @@
+services:
+  utilities:
+    image: k8spaasclusterdesign.azurecr.io/tools/utilities:0.1.0
+    build:
+      context: tools/utilities-image
+    volumes:
+      - ./kube-config.yaml:/root/.kube/config:ro
+      - .:/code
+    working_dir: /code
+    stdin_open: true
+    tty: true
