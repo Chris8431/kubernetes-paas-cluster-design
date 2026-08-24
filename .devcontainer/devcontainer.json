@@ -1,0 +1,11 @@
+{
+  "name": "Kubernetes PaaS Cluster Design",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "..",
+  },
+  "remoteUser": "vscode",
+  "remoteEnv": {
+    "KUBECONFIG": "${containerWorkspaceFolder}/kube-config.yaml",
+  },
+}

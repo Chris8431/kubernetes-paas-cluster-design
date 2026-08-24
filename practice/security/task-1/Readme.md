@@ -1,14 +1,15 @@
 # Security Task 1 - Find images with vulnerabilities
 
-__Hint__: If you do not have trivy installed, use the following command to start a container, that has trivy pre-installed:
+**Hint**: If you do not have trivy installed, run the following command from the repo root to start a container with trivy pre-installed:
 
 ```bash
-docker run --rm -it k8spaasclusterdesign.azurecr.io/tools/utilities:0.1.0
+docker compose run --rm utilities
 ```
 
 Go through the following images and scan them with trivy. To scan an image you can use the following command: `trivy image <name-of-image>`
 
 Try to find the image(s) that has NO high/critical vulnerabilities and NO secrets in the image:
+
 - k8spaasclusterdesign.azurecr.io/tools/security/ubuntu:bionic
   - (based on docker.io/library/ubuntu:bionic)
 - k8spaasclusterdesign.azurecr.io/tools/security/dotnet/runtime:7.0-alpine
