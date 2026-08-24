@@ -3,6 +3,7 @@
 # Must be run as root (no sudo).
 set -euo pipefail
 
+export DEBIAN_FRONTEND=noninteractive
 ARCH="$(dpkg --print-architecture)"
 
 apt-get update
@@ -34,4 +35,15 @@ echo "deb [signed-by=/usr/share/keyrings/trivy.gpg] https://get.trivy.dev/deb ge
 apt-get update
 apt-get install -y trivy
 
+# --- k9s (latest) ---
+K9S_VERSION=$(curl -fsSL https://api.github.com/repos/derailed/k9s/releases/latest | grep '"tag_name"' | sed 's/.*"\(v[^"]*\)".*/\1/')
+curl -fsSL "https://github.com/derailed/k9s/releases/download/${K9S_VERSION}/k9s_Linux_${ARCH}.tar.gz" \
+    | tar -xz -C /tmp k9s
+install -o root -g root -m 0755 /tmp/k9s /usr/local/bin/k9s
+rm /tmp/k9s
+
 apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# --- Shell completions (system-wide, works for any user) ---
+kubectl completion bash > /etc/bash_completion.d/kubectl
+trivy completion bash > /etc/bash_completion.d/trivy

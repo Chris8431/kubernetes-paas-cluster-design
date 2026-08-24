@@ -29,14 +29,12 @@ docker compose run --rm utilities
 
 This pulls the pre-built image from the course registry, mounts `kube-config.yaml` as the active kubeconfig, and mounts the repository under `/code`. You will land in an interactive shell with all tools available.
 
-If you want to build the image locally instead (e.g. to customize it or avoid the registry), run:
+To build the image locally instead (e.g. without registry access), run:
 
 ```bash
 docker compose build utilities
 docker compose run --rm utilities
 ```
-
-The local build uses `tools/utilities-image/Dockerfile` and is tagged with the same image name, so subsequent `run` calls use your local version.
 
 ## Structure
 
@@ -59,8 +57,7 @@ The following output of `tree -L 2` shows the folder structure of this repo:
 └── tools/                  -> Used to build example images
     ├── demo-app
     ├── password
-    ├── scratch
-    └── utilities-image
+    └── scratch
 ```
 
 ## License
